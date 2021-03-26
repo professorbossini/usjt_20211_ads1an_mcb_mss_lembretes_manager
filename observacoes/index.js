@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
+const { v4: uuidv4 } = require('uuid');
 app.use(express.json());
 const observacoesPorLembreteId = {};
-const { v4: uuidv4} = require('uuid');
 
 //:id é um placeholder
 //exemplo: /lembretes/123456/observacoes
@@ -22,5 +22,5 @@ app.get('/lembretes/:id/observacoes', (req, res) => {
 });
 
 app.listen(5000, (() => {
-    console.log('Observações: porta 5000');
-}))
+    console.log('Observacoes. Porta 5000');
+}));
