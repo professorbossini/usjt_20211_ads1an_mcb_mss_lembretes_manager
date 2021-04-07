@@ -24,4 +24,14 @@ app.post('/eventos', (req,res) => {
     res.status(200).send({msg: "ok"});
 });
 
-app.listen(7000, () => console.log("Classificação. Porta 7000"));
+app.listen(7000, () => {
+    console.log("Classificação. Porta 7000");
+    const resp = await 
+    axios.get("http://localhost:10000/eventos");
+    //axios entrega os dados na propriedade data
+  resp.data.forEach((valor, indice, colecao) => {
+    try{
+      funcoes[valor.tipo](valor.dados);
+    } catch(err){}
+  });
+});
