@@ -10,7 +10,7 @@ const funcoes = {
             observacao.texto.includes(palavraChave)
             ? "importante"
             : "comum";
-        axios.post("http://192.168.15.61:10000/eventos", {
+        axios.post("http://localhost:10000/eventos", {
             tipo: "ObservacaoClassificada",
             dados: observacao,
         });
@@ -27,7 +27,7 @@ app.post('/eventos', (req,res) => {
 app.listen(7000, () => {
     console.log("Classificação. Porta 7000");
     const resp = await 
-    axios.get("http://192.168.15.61:10000/eventos");
+    axios.get("http://localhost:10000/eventos");
     //axios entrega os dados na propriedade data
   resp.data.forEach((valor, indice, colecao) => {
     try{

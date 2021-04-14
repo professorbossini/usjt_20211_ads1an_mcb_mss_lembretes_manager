@@ -5,7 +5,7 @@ app.use(express.json());
 const lembretes = {};
 let contador = 0;
 
-//http://192.168.15.61:porta/lembretes
+//http://localhost:porta/lembretes
 app.get('/lembretes', (req, res) => {
     res.send(lembretes);
 })
@@ -16,7 +16,7 @@ app.put ('/lembretes', async (req, res) => {
     lembretes[contador] = {
         contador, texto
     }
-    await axios.post("http://192.168.15.61:10000/eventos", {
+    await axios.post("http://localhost:10000/eventos", {
         tipo: "LembreteCriado",
         dados: { 
             contador,

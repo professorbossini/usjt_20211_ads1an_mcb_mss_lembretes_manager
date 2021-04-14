@@ -9,13 +9,13 @@ app.post('/eventos', (req, res) => {
     const evento = req.body;
     eventos.push(evento);
     //envia o evento para o microsserviço de lembretes
-    axios.post('http://192.168.15.61:4000/eventos', evento);
+    axios.post('http://localhost:4000/eventos', evento);
      //envia o evento para o microsserviço de observacoes 
-    axios.post('http://192.168.15.61:5000/eventos', evento);
+    axios.post('http://localhost:5000/eventos', evento);
     //envia o evento para o microsserviço de consulta
-    axios.post('http://192.168.15.61:6001/eventos', evento);
+    axios.post('http://localhost:6001/eventos', evento);
     //envia o evento para o microsserviço de classificação
-    axios.post('http://192.168.15.61:7000/eventos', evento);
+    axios.post('http://localhost:7000/eventos', evento);
     
     res.status(200).send({ msg: "ok"});
 });

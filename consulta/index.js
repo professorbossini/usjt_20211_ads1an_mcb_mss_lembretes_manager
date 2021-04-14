@@ -37,7 +37,7 @@ app.post('/eventos', (req, res) => {
 app.listen(6001, async () => {
   console.log('Consultas. Porta 6001.');
   const resp = await 
-    axios.get("http://192.168.15.61:10000/eventos");
+    axios.get("http://localhost:10000/eventos");
     //axios entrega os dados na propriedade data
   resp.data.forEach((valor, indice, colecao) => {
     try{
